@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Record Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎓 Student Record Management System</h1>
+    <p>Arrays · Linked Lists · Searching · Sorting</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Add Student</h2>
+      <form id="addForm">
+        <input type="number" id="rollNo" placeholder="Roll No" required />
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="number" step="0.01" id="marks" placeholder="Marks" required />
+        <input type="text" id="grade" placeholder="Grade (e.g. A+)" />
+        <button type="submit">➕ Add Student</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Search Student</h2>
+      <input type="number" id="searchRoll" placeholder="Roll No to search" />
+      <select id="searchAlgo">
+        <option value="linear">Linear Search — O(n)</option>
+        <option value="binary">Binary Search — O(log n)</option>
+      </select>
+      <button onclick="searchStudent()">🔍 Search</button>
+      <div id="searchResult"></div>
+    </section>
+
+    <section class="card">
+      <h2>Sort Records</h2>
+      <select id="sortKey">
+        <option value="rollNo">By Roll No</option>
+        <option value="name">By Name</option>
+        <option value="marks">By Marks</option>
+      </select>
+      <select id="sortAlgo">
+        <option value="bubble">Bubble Sort — O(n²)</option>
+        <option value="selection">Selection Sort — O(n²)</option>
+        <option value="merge">Merge Sort — O(n log n)</option>
+      </select>
+      <button onclick="sortStudents()">📊 Sort</button>
+      <div id="sortStats"></div>
+    </section>
+
+    <section class="card">
+      <h2>All Records</h2>
+      <div class="view-toggle">
+        <button onclick="loadStudents('array')" class="active" id="btnArray">Array View</button>
+        <button onclick="loadStudents('linked')" id="btnLinked">Linked List View</button>
+      </div>
+      <table id="recordsTable">
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Marks</th>
+            <th>Grade</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
